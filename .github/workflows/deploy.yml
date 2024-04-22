@@ -1,0 +1,19 @@
+name: deploy
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'bin/**'
+      - 'README.m'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        # Checkout our repository under `${GITHUB_WORKSPACE}`,
+        # so our workflow can access it
+        uses: actions/checkout@v3
+        with:
+          # Fetch the entire Git history
+          fetch-depth: 0  
